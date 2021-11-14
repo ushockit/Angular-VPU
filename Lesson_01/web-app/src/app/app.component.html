@@ -1,0 +1,23 @@
+<h1>{{ '-> ' + title }}</h1>
+<h1>Value - {{ value }}</h1>
+<h1>{{ formatDate }}</h1>
+<img width="200" [src]="imageSrc" [class]="classList" alt="">
+
+<button (click)="onActiveChange($event)">Active change</button>
+<button [class]="btnStart.isActive ? btnStart.activeStyle : btnStart.disableStyle">Start</button>
+
+<button [class.off]="!btnStart.isActive">Demo</button>
+
+
+<h4>Counter = {{ counter }}</h4>
+<input #inputValue type="number" min="1">
+<button (click)="up(+inputValue.value)">+</button>
+<button (click)="down(+inputValue.value)">-</button>
+
+<h5>{{ inputUsernameValue }}</h5>
+<input type="text" [(ngModel)]="inputUsernameValue"/>
+
+<div class="users-list">
+  <user-card [user]="user" (userUpdateEvent)="updateUser($event)"></user-card>
+  <user-card [user]="{ firstName: 'Kolya', lastName: 'Ivanonov', age: 30 }" (userUpdateEvent)="updateUser($event)"></user-card>
+</div>

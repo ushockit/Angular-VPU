@@ -1,0 +1,14 @@
+Создать интерфейс PersonInfoInterface и PassportInterface с полями:
+- firstName
+- lastName
+- middleName
+- birth
+- profession
+- passport {
+  - series
+  - number
+}
+Создать компонент personal-info и passport-info
+
+
+В главном компоненте создается объект, который описывает человека и данный передаются в personal-info  компонент, который в свою очередь отображает всю информацию, а так же задействует внутри себя компонент passport-info
