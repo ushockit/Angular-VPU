@@ -1,0 +1,9 @@
+<h3 textHover>{{title}}</h3>
+<demo *ngIf="isHideDemo" [text]="title"></demo>
+
+<button (click)="onBtnChangeClick()">Change</button>
+
+<ng-container *ngIf="isShowPeopleList">
+  <people></people>
+</ng-container>
+<button (click)="isShowPeopleList = !isShowPeopleList">Toggle list</button>

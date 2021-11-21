@@ -1,0 +1,38 @@
+<!--<form>-->
+<!--  <div>-->
+<!--    <label>Email</label>-->
+<!--    <input type="email" name="email" required #email="ngModel" [(ngModel)]="personModel.email" placeholder="Enter your email..."/>-->
+<!--    <div *ngIf="email.invalid" style="color: red">Email is invalid</div>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <label>Password</label>-->
+<!--    <input type="password" min="4" required max="16" name="password" #pswd="ngModel" [(ngModel)]="personModel.password" placeholder="Enter your password..."/>-->
+<!--  </div>-->
+<!--  <button (click)="onSubmit()" [disabled]="email.invalid || pswd.invalid">Submit</button>-->
+<!--</form>-->
+
+<form [formGroup]="form">
+  <div class="form-control">
+    <label>Email</label>
+    <input type="email" formControlName="email" placeholder="Enter your email..."/>
+    <div *ngIf="emailControl.errors">
+      <div *ngIf="emailControl.errors.required">Email is required</div>
+      <div *ngIf="emailControl.errors.email">Email is invalid</div>
+    </div>
+  </div>
+  <div class="form-control">
+    <label>Password</label>
+    <input type="password" formControlName="password" placeholder="Enter your password..."/>
+  </div>
+  <div formArrayName="phones" class="form-control">
+    <button (click)="onAddPhone()">Add new phone</button>
+    <div *ngFor="let phoneControl of phonesControls.controls;let idx = index">
+      <label>Phone</label>
+      <input type="text" formControlName="{{idx}}" prefix="+38" mask="(000) 000 00 00">
+    </div>
+  </div>
+  <p-rating formControlName="score" [cancel]="false"></p-rating>
+  <p-calendar></p-calendar>
+  <button (click)="onSubmit()" [disabled]="!form.valid">Submit</button>
+</form>
+

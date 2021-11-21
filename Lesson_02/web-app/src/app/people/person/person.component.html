@@ -1,0 +1,7 @@
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<div class="person-card">
+  <h4>{{person.firstName | bigFirstLetter}}</h4>
+  <h4>{{person.lastName | bigFirstLetter}}</h4>
+  <h4>{{person.birth | date:'fullDate' | uppercase}}</h4>
+  <button (click)="onRemoveClick()">Remove</button>
+</div>

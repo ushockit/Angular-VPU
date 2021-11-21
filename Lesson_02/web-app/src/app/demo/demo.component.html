@@ -1,0 +1,22 @@
+<h4 *ngIf="text">Text: {{text}}</h4>
+
+<ul>
+  <li textHover *ngFor="let item of values;let idx = index;let isFirst = first;let isLast = last;let isOdd = odd;let isEven = even;" (click)="selectedValue = item">
+    {{idx}} - {{item}}
+    <div>isFirst: {{isFirst}}</div>
+    <div>isLast: {{isLast}}</div>
+    <div>isOdd: {{isOdd}}</div>
+    <div>isEven: {{isEven}}</div>
+  </li>
+</ul>
+
+<div *ngIf="selectedValue">
+  <div [ngSwitch]="selectedValue">
+    <div *ngSwitchCase="'Item 1'" style="color: red">{{selectedValue}}</div>
+    <div *ngSwitchCase="'Item 2'" style="color: yellow">{{selectedValue}}</div>
+    <div *ngSwitchCase="'Item 3'" style="color: blue">{{selectedValue}}</div>
+    <div *ngSwitchCase="'Item 4'" style="color: green">{{selectedValue}}</div>
+    <div *ngSwitchCase="'Item 5'" style="color: purple">{{selectedValue}}</div>
+    <div *ngSwitchDefault style="color: black">{{selectedValue}}</div>
+  </div>
+</div>
