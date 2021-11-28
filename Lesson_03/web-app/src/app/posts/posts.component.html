@@ -1,0 +1,6 @@
+<h1>Posts</h1>
+<ul *ngIf="posts$ | async as posts; else loading">
+  <li *ngFor="let post of posts">{{post.id}} {{post.user}} - <button (click)="onSelectPost(post)">Select</button></li>
+</ul>
+
+<ng-template #loading>Loading...</ng-template>
